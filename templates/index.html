@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <!-- http://getbootstrap.com/docs/4.5/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <!-- https://favicon.io/emoji-favicons/money-mouth-face/ -->
+        <link href="/static/pen.ico" rel="icon">
+        <link href="/static/styles.css" rel="stylesheet">
+        <!-- http://getbootstrap.com/docs/4.5/ -->
+        <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
+
+        <title>DRAW YOUR THINGS</title>
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <a class="navbar-brand" href="/"><span class="blue">DRAW</span><span class="red">YOUR</span><span class="green">THINGS</span>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/change">Change Password</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </nav>
+        <div>
+            <div class="buttons">
+                <p></p>
+                <p></p>
+                <button id="color-btn" class="btn">Change Color</button>
+                <button id="clear-btn" class="btn">Clear</button>
+                <p></p>
+                <p></p>
+            </div>
+            <!-- <canvas class="whiteboard" width="600" height="400"></canvas> -->
+            <canvas class="whiteboard" ></canvas>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://media.twiliocdn.com/sdk/js/sync/releases/0.12.4/twilio-sync.min.js"></script>
+            <script src="{{ url_for('static', filename='main.js') }}"></script>
+        </div>
+
+        <footer class="small text-center text-muted">
+            Data provided for free by <a href="https://www.twilio.com/">TWILIO</a>. View <a href="https://www.twilio.com/legal/tos">TWILIO’s Terms of Use</a>.
+            <p></p>
+            <p></p>
+        </footer>
+    </body>
+</html>
