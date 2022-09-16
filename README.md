@@ -1,7 +1,10 @@
 # DRAW YOUR THINGS (login required)
-#### Video Demo:  <https://youtu.be/Gpu8sGA3cHg>
+
+#### Video Demo: <https://youtu.be/Gpu8sGA3cHg>
+
 #### Description:
-A simple whiteboard(login required) build with Flask, Twilio Sync and CS50 Library, allow users to draw or write on the website.
+
+Users can write or draw on the website using a straightforward whiteboard that was built using Flask and the CS50 Library (login required).
 
 1. Users have to register for the program.
 2. Users may change their passwords.
@@ -9,10 +12,9 @@ A simple whiteboard(login required) build with Flask, Twilio Sync and CS50 Libra
 
 #### Why whiteboard?
 
-I want to create a space that users can draw or write anything. The most important thing is that users have to register and log in so that they can keep their paintings safe.
+I want to provide a place where people can write or draw anything. The most crucial need is that people sign up and log in in order to protect their artwork.
 
-Just draw and write whatever you like!!
-
+Draw and write anything you want, please!
 
 ## Installation
 
@@ -21,6 +23,7 @@ Use SQLite3 to build the database. (Stores the users' passwords)
 Other small libraries or packages.
 
 Clone the repo and build the environment:
+
 ```
 $ git clone https://github.com/ken1009us/draw
 
@@ -39,22 +42,10 @@ virtualenv (venv) is used to manage Python packages for different projects. Usin
 
 People generate and share requirements.txt files to make it easier for other developers to install the correct versions of the required Python libraries (or “packages”) to run the Python code we've written.
 
-Make sure to rename the `.env.example` to `.env`, and fill the variables in it.
-(You will need to register a free [Twilio account](http://www.twilio.com/referral/w6qBg0)).
-
-example:
-
-```
-TWILIO_ACCOUNT_SID=
-TWILIO_AUTH_TOKEN=
-TWILIO_SYNC_SERVICE_SID=
-TWILIO_API_KEY=
-TWILIO_API_SECRET=
-```
-
 ## Execution
 
 Run the application with:
+
 ```
 (venv) $ flask run
 ```
@@ -63,11 +54,11 @@ Then you can open http://localhost:5000 to check the program.
 
 Now we are ready to go!
 
-After logging in, the interface will be redirected to the main page, then Users can press their cursor to start drawing or writing.
+The interface will switch to the home page after users log in, where they may then press the cursor to begin writing or drawing.
 
-As for the buttons in the upper right corner, they provide the functions of changing users' passwords and logging out.
+In terms of the buttons in the upper right corner, they allow users to log out and change their passwords.
 
-After changing the password, make sure to re-login to check your password.
+Re-logging in after changing the password will allow you to verify it.
 
 ## Possible improvements
 
