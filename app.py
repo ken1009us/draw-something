@@ -7,8 +7,6 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import HTTPException, InternalServerError, default_exceptions
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_session import Session
-from twilio.jwt.access_token import AccessToken
-from twilio.jwt.access_token.grants import SyncGrant
 
 
 app = Flask(__name__)
@@ -70,25 +68,6 @@ def register():
 
     else:
         return render_template("register.html")
-
-
-@app.route('/token')
-@login_required
-def generate_token():
-    # get credentials from environment variables
-    account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-    api_key = os.getenv('TWILIO_API_KEY')
-    api_secret = os.getenv('TWILIO_API_SECRET')
-    sync_service_sid = os.getenv('TWILIO_SYNC_SERVICE_SID')
-    username = db.execute("SELECT username FROM users WHERE id=:user_id", user_id=session["user_id"])[0]["username"]
-
-    # create access token with credentials
-    token = AccessToken(account_sid, api_key, api_secret, identity=username)
-    # create a Sync grant and add to token
-    sync_grant = SyncGrant(sync_service_sid)
-    token.add_grant(sync_grant)
-    return jsonify(identity=username, token=token.to_jwt().decode())
-
 
 # Log in page
 @app.route("/login", methods=["GET", "POST"])
